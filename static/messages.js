@@ -3,10 +3,10 @@ function Messages(props) {
     const [num, setNum] = React.useState([]);
     const getMessages = () => {
         axios.get("/messages").then((result) => {
-            setMessages(result.data.messages);
+            setMessages(result.data);
         })
-        axios.get("/messages").then((result) => {
-            setNum(result.data.len);
+        axios.get("/num").then((result) => {
+            setNum(result.data);
         })
     }
     React.useEffect(() => {
@@ -21,9 +21,9 @@ function Messages(props) {
                 <div>{item}</div>
             )}</div>
             <button onClick={getMessages}>Get New Messages</button>
-            <h2>
+            <div>
                 You have {num} messages
-            </h2>
+            </div>
         </div>
     );
 }

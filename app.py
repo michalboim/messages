@@ -22,20 +22,21 @@ def home():
 
 
 @app.route('/num')
-def num_msg():
+def num():
     if 'num' not in session:
         session["num"] = len(messages)
+    else:
+        if session["counter"] == 0:
+            session["num"] = len(messages)
+        else:
+            session["num"] = len(messages)
+            session["counter"] = 0
     return str(session["num"])
 
 
 @app.route('/messages')
 def get_messages():
-    if session["counter"] == 0:
-        session["num"] = len(messages)
-    else:
-        session["num"] = len(messages)
-        session["counter"] = 0
-    return {"messages": messages, "len": session["num"]}
+    return messages
 
 
 @app.route('/new_message_counter')

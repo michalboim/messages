@@ -1,5 +1,5 @@
 function Counter(props) {
-    const [counter, setCounter] = React.useState([]);
+    const [counter, setCounter] = React.useState('');
     const getCount = () => {
         axios.get("/new_message_counter").then((result) => {
             setCounter(result.data);

@@ -33,11 +33,9 @@ def num():
             session["counter"] = 0
     return str(session["num"])
 
-
 @app.route('/messages')
 def get_messages():
     return messages
-
 
 @app.route('/new_message_counter')
 def message_counter():
@@ -52,7 +50,6 @@ def message_counter():
 @app.route('/admin')
 def admin():
     return render_template("admin.html")
-
 
 @app.route('/add', methods=['POST'])
 def add():
